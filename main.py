@@ -9,8 +9,8 @@ NUM_ITERATIONS = 1000
 
 def grad_descent(x, y, learning_rate, num_iterations, dataset_type):
     log = open("log.txt", "a")
-    m = 0
-    c = 0
+    m = 0  # slope
+    c = 0  # intercept
     n = float(len(x))
     for i in range(num_iterations):
         y_prime = m * x + c
@@ -27,11 +27,10 @@ def grad_descent(x, y, learning_rate, num_iterations, dataset_type):
 if __name__ == '__main__':
     url = 'https://raw.githubusercontent.com/AbedMir31/GradientDescent/master/leaf.csv'
     data = pd.read_csv(url)
-    X = data.iloc[:, 0]
-    Y = data.iloc[:, 1]
-    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=.2, random_state=69)
+    print(data)
+    X_train, X_test = train_test_split(data, test_size=.2, random_state=69)
 
-    y_pred = grad_descent(X_train, Y_train, LEARNING_RATE, NUM_ITERATIONS, "train")
-    plt.scatter(X_test, Y_test)
-    plt.plot([min(X_test), max(X_test)], [min(y_pred), max(y_pred)], color='red')
-    plt.show()
+    #  y_pred = grad_descent(X_train, Y_train, LEARNING_RATE, NUM_ITERATIONS, "train")
+    #  plt.scatter(X_test, Y_test)
+    #  plt.plot([min(X_test), max(X_test)], [min(y_pred), max(y_pred)], color='red')
+    #  plt.show()
