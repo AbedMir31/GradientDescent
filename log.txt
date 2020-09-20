@@ -1,4 +1,0 @@
-learning rate: 0.0001	epoch: 10000	trial beginning MSE: 6179.52626	    trial completion MSE: 2732.35112
-learning rate: 0.0001	epoch: 100000	trial beginning MSE: 6179.52626		trial completion MSE: 2653.30840
-learning rate: 0.001	epoch: 10000	trial beginning MSE: 6166.40481		trial completion MSE: 2653.30827
-learning rate: 0.001	epoch: 100000	trial beginning MSE: 6166.40481		trial completion MSE: 2560.66907
