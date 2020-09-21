@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-LEARNING_RATE = .01
-EPOCH = 10000
+LEARNING_RATE = .15
+EPOCH = 4000
 
 
 def grad_descent(x, y, w, learning_rate, epoch):
@@ -38,10 +38,12 @@ if __name__ == '__main__':
     # TRAIN
     new_weight, oldlog = grad_descent(X_train, Y_train, weights, LEARNING_RATE, EPOCH)
     log = open('log.txt', 'a')
-    log.write('training data:\tstarting mse: %.2f\tending mse: %.2f\n' % (oldlog[0], oldlog[-1]))
+    log.write('training data:\tlearning rate: %.2f\tepochs: %d\tstarting mse: %.2f\tending mse: %.2f\t'
+              % (LEARNING_RATE, EPOCH, oldlog[0], oldlog[-1]))
 
     # TEST
     new_weight, newlog = grad_descent(X_train, Y_train, new_weight, LEARNING_RATE, EPOCH)
     log = open('log.txt', 'a')
-    log.write('test data:\t starting mse: %f\tending mse: %.2f\n' % (newlog[0], newlog[-1]))
+    log.write('test data:\tlearning rate: %.2f\tepochs: %d\tstarting mse: %.2f\tending mse: %.2f\n\n'
+              % (LEARNING_RATE, EPOCH, newlog[0], newlog[-1]))
 
